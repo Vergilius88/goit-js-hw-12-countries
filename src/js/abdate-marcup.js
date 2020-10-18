@@ -3,8 +3,12 @@ import countriesTemplateItem from '../templates/templates-countries-item.hbs';
 import countriesTemplateList from '../templates/templates-countries-list.hbs';
 import ref from './refs.js';
 function markupSelection(item) {
-  if (!item) {
+  if (item.length === undefined) {
     ref.listCountriesRef.innerHTML = '';
+    error({
+      title: 'Oh No!',
+      text: 'No matches found.',
+    });
     return;
   } else if (item.length > 10) {
     alert({

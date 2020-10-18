@@ -7,7 +7,8 @@ import debounce from 'lodash.debounce';
 ref.inputRef.addEventListener(
   'input',
   debounce(event => {
-    serviceAPI.query = ref.inputRef.value;
+    const nameCountry = ref.inputRef.value;
+    serviceAPI.query = nameCountry.trim()
     serviceAPI.fetchCountries().then(markupSelection);
   }, 500),
 );
